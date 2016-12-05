@@ -4,8 +4,10 @@
   "description": "Ciri API",
   "main": "index.js",
   "scripts": {
-    "build": "babel -d dist src",
-    "dev": "nodemon --exec node --harmony-async-await index.js"
+    "build": "babel src --out-dir dist --ignore migrations",
+    "dev": "nodemon index.js",
+    "migrate": "sequelize db:migrate",
+    "rollback": "sequelize db:migrate:undo"
   },
   "author": "",
   "license": "ISC",
@@ -16,13 +18,15 @@
     "babel-preset-es2015-node6": "^0.4.0",
     "babel-register": "^6.18.0",
     "eslint": "^3.10.2",
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.11.0",
+    "sequelize-cli": "^2.4.0"
   },
   "dependencies": {
+    "jsonapi-serializer": "^3.4.1",
     "koa": "^2.0.0",
     "koa-mount": "^2.0.0",
     "koa-router": "^7.0.1",
-    "sequelize": "^3.27.0",
-    "umzug": "^1.11.0"
+    "pg": "^6.1.0",
+    "sequelize": "^3.27.0"
   }
 }
