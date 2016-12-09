@@ -1,21 +1,21 @@
 {
   "development": {
     "username": "postgres",
-    "password": null,
+    "password": "123456",
     "database": "ciri_development",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
     "username": "postgres",
-    "password": null,
+    "password": "123456",
     "database": "ciri_test",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "production": {
     "username": "postgres",
-    "password": null,
+    "password": "123456",
     "database": "ciri_production",
     "host": "127.0.0.1",
     "dialect": "postgres"
