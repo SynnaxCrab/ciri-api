@@ -4,10 +4,10 @@ ENV NODE_ENV 'production'
 
 RUN npm install -g sequelize sequelize-cli
 
-RUN mkdir /ciri
-WORKDIR /ciri
+RUN mkdir /ciri-api
+WORKDIR /ciri-api
 
-ADD package.json /ciri/package.json
+ADD package.json /ciri-api/package.json
 RUN npm install
 
-ADD ./dist /ciri
+ADD ./dist /ciri-api

@@ -24,7 +24,6 @@
   "dependencies": {
     "jsonapi-serializer": "^3.4.1",
     "koa": "^2.0.0",
-    "koa-mount": "^2.0.0",
     "koa-router": "^7.0.1",
     "pg": "^6.1.0",
     "sequelize": "^3.27.0"

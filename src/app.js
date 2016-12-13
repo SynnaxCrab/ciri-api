@@ -1,5 +1,4 @@
 import Koa from 'koa'
-import mount from 'koa-mount'
 import router from './routes/index'
 
 const app = new Koa()
