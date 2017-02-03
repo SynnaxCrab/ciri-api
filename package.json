@@ -6,7 +6,7 @@
   "scripts": {
     "build": "babel src --out-dir dist --ignore migrations",
     "dev": "nodemon index.js",
-    "test": "mocha --require babel-register;",
+    "test": "mocha --recursive --require babel-register;",
     "migrate": "sequelize db:migrate",
     "rollback": "sequelize db:migrate:undo"
   },
@@ -20,8 +20,11 @@
     "babel-register": "^6.18.0",
     "chai": "^3.5.0",
     "eslint": "^3.10.2",
+    "faker": "^3.1.0",
     "mocha": "^3.2.0",
     "nodemon": "^1.11.0",
+    "rewire": "^2.5.2",
+    "rosie": "^1.6.0",
     "sequelize-cli": "^2.4.0"
   },
   "dependencies": {
