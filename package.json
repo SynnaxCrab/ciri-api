@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "Ciri API",
   "main": "index.js",
+  "engines": {
+    "node": "7.8.0"
+  },
   "scripts": {
     "build": "babel src --out-dir dist --ignore migrations",
     "dev": "nodemon index.js",
@@ -13,10 +16,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "babel-cli": "^6.18.0",
-    "babel-plugin-syntax-async-functions": "^6.13.0",
-    "babel-plugin-transform-async-to-generator": "^6.16.0",
-    "babel-preset-es2015-node6": "^0.4.0",
+    "babel-cli": "^6.24.1",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.24.1",
     "babel-register": "^6.18.0",
     "chai": "^3.5.0",
     "eslint": "^3.10.2",
@@ -29,8 +30,8 @@
   },
   "dependencies": {
     "jsonapi-serializer": "^3.4.1",
-    "koa": "^2.0.0",
-    "koa-router": "^7.0.1",
+    "koa": "^2.2.0",
+    "koa-router": "^7.1.1",
     "pg": "^6.1.0",
     "sequelize": "^3.27.0"
   }

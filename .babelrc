@@ -1,7 +1,3 @@
 {
-  presets: ["es2015-node6"],
-  plugins: [
-   'transform-async-to-generator',
-   'syntax-async-functions'
-  ]
+  "plugins": ["transform-es2015-modules-commonjs"]
 }
