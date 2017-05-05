@@ -1,13 +1,25 @@
 import Koa from 'koa'
-import router from './routes/index'
+import koaRouter from 'koa-router'
+import koaBody from 'koa-bodyparser'
+import { graphqlKoa, graphiqlKoa } from 'graphql-server-koa'
+
+import schema from './data/schema'
 
 const app = new Koa()
-app.use(router.routes()).use(router.allowedMethods())
+const router = new koaRouter()
+const PORT = 3000
 
-app.use(async ctx => {
-  ctx.body = "Hello Koa API!"
-})
+app.use(koaBody())
 
-const port = 8888
-console.log("Started on port: " + port)
-app.listen(port)
+router.post('/graphql', graphqlKoa({ schema: schema }))
+router.get('/graphql', graphqlKoa({ schema: schema }))
+
+router.get('/graphiql', graphiqlKoa({
+  endpointURL: '/graphql'
+}))
+
+app.use(router.routes())
+app.use(router.allowedMethods())
+
+console.log("Started on port: " + PORT)
+app.listen(PORT)
