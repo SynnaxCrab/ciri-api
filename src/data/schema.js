@@ -12,6 +12,11 @@ type Article {
 type Query {
   articles: [Article]
 }
+
+type Mutation {
+  createArticle(title: String, body: String): Article
+  destroyArticle(id: ID!): Article
+}
 `
 export default makeExecutableSchema({
   typeDefs: schema,
