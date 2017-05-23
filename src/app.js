@@ -1,4 +1,5 @@
 import Koa from 'koa'
+import cors from 'kcors'
 import koaRouter from 'koa-router'
 import koaBody from 'koa-bodyparser'
 import { graphqlKoa, graphiqlKoa } from 'graphql-server-koa'
@@ -9,6 +10,7 @@ const app = new Koa()
 const router = new koaRouter()
 const PORT = 3000
 
+app.use(cors())
 app.use(koaBody())
 
 router.post('/graphql', graphqlKoa({ schema: schema }))
