@@ -29,6 +29,7 @@
     "sequelize-cli": "^2.7.0"
   },
   "dependencies": {
+    "dotenv": "^4.0.0",
     "graphql": "^0.10.5",
     "graphql-server-koa": "^1.0.2",
     "graphql-tools": "^1.1.0",

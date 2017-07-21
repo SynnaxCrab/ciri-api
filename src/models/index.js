@@ -1,31 +1,39 @@
-"use strict";
+import { config } from 'dotenv'
+config()
 
-const fs        = require("fs");
-const path      = require("path");
-const Sequelize = require("sequelize");
-const basename  = path.basename(module.filename);
-const env       = process.env.NODE_ENV || "development";
-const config    = require(__dirname + '/../config/database.json')[env];
-const sequelize = new Sequelize(config.database, config.username, config.password, config);
-const db        = {};
+import fs from 'fs'
+import path from 'path'
+import Sequelize from 'sequelize'
+
+const basename  = path.basename(module.filename)
+const sequelize = new Sequelize(
+  process.env.DB_NAME,
+  process.env.DB_USER,
+  process.env.DB_PASSWORD,
+  {
+    dialect: 'postgres'
+  }
+)
+
+const db        = {}
 
 fs
   .readdirSync(__dirname)
   .filter(function(file) {
-    return (file.indexOf(".") !== 0) && (file !== basename);
+    return (file.indexOf(".") !== 0) && (file !== basename)
   })
   .forEach(function(file) {
-    const model = sequelize["import"](path.join(__dirname, file));
+    const model = sequelize["import"](path.join(__dirname, file))
     db[model.name] = model;
-  });
+  })
 
 Object.keys(db).forEach(function(modelName) {
   if ("associate" in db[modelName]) {
-    db[modelName].associate(db);
+    db[modelName].associate(db)
   }
 });
 
-db.sequelize = sequelize;
-db.Sequelize = Sequelize;
+db.sequelize = sequelize
+db.Sequelize = Sequelize
 
-export default db;
+export default db
