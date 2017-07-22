@@ -7,7 +7,9 @@
     "node": "7.8.0"
   },
   "scripts": {
-    "build": "babel src --out-dir dist --ignore migrations",
+    "build": "babel src --out-dir dist --copy-files --ignore migrations",
+    "start": "node app.js",
+    "dist": "node dist/app.js",
     "dev": "nodemon index.js",
     "test": "mocha --recursive --require babel-register;",
     "migrate": "sequelize db:migrate",
