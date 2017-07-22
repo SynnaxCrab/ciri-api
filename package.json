@@ -39,6 +39,7 @@
     "koa": "^2.2.0",
     "koa-bodyparser": "^4.2.0",
     "koa-router": "^7.1.1",
+    "optics-agent": "^1.1.6",
     "pg": "^7.0.2",
     "sequelize": "^4.4.2",
     "sequelize-cli": "^2.7.0"
