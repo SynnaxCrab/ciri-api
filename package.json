@@ -7,7 +7,7 @@
     "node": "7.8.0"
   },
   "scripts": {
-    "build": "babel src --out-dir dist --copy-files --ignore migrations",
+    "build": "babel src --out-dir dist --copy-files",
     "start": "node app.js",
     "dist": "node dist/app.js",
     "dev": "nodemon index.js",
@@ -27,8 +27,7 @@
     "mocha": "^3.2.0",
     "nodemon": "^1.11.0",
     "rewire": "^2.5.2",
-    "rosie": "^1.6.0",
-    "sequelize-cli": "^2.7.0"
+    "rosie": "^1.6.0"
   },
   "dependencies": {
     "dotenv": "^4.0.0",
@@ -41,6 +40,7 @@
     "koa-bodyparser": "^4.2.0",
     "koa-router": "^7.1.1",
     "pg": "^6.1.0",
-    "sequelize": "^3.27.0"
+    "sequelize": "^3.27.0",
+    "sequelize-cli": "^2.7.0"
   }
 }
