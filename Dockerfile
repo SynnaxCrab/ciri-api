@@ -4,8 +4,6 @@ ENV NODE_ENV 'production'
 
 EXPOSE 3000
 
-RUN yarn global add sequelize sequelize-cli
-
 RUN mkdir /ciri-api
 WORKDIR /ciri-api
 
