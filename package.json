@@ -11,7 +11,7 @@
     "start": "node app.js",
     "dist": "node dist/app.js",
     "dev": "nodemon index.js",
-    "test": "mocha --recursive --require babel-register;",
+    "test": "mocha --recursive --compilers js:babel-register",
     "migrate": "sequelize db:migrate",
     "rollback": "sequelize db:migrate:undo"
   },
