@@ -1,3 +1,6 @@
+import { config } from 'dotenv'
+config()
+
 import Koa from 'koa'
 import cors from 'kcors'
 import koaRouter from 'koa-router'

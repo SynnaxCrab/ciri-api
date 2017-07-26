@@ -12,8 +12,10 @@
     "dist": "node dist/app.js",
     "dev": "nodemon index.js",
     "test": "mocha --recursive --compilers js:babel-register",
-    "migrate": "sequelize db:migrate",
-    "rollback": "sequelize db:migrate:undo"
+    "migrate:dev": "sequelize --config src/config/database.js db:migrate",
+    "rollback:dev": "sequelize --config src/config/database.js db:migrate:undo",
+    "migrate:prod": "sequelize --config config/database.js db:migrate",
+    "rollback:prod": "sequelize --config config/database.js db:migrate:undo"
   },
   "author": "",
   "license": "ISC",

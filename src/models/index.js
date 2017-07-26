@@ -1,6 +1,3 @@
-import { config } from 'dotenv'
-config()
-
 import fs from 'fs'
 import path from 'path'
 import Sequelize from 'sequelize'
