@@ -7,7 +7,8 @@ pipelines:
   default:
     - step:
         script:
-          - apk add --no-cache ssh
+          - apk update
+          - apk add openssh
           - yarn install
           - yarn test
           - yarn build
@@ -15,4 +16,4 @@ pipelines:
           - docker login -u $DOCKER_HUB_USERNAME -p $DOCKER_HUB_PASSWORD
           - docker build -t $IMAGE_NAME .
           - docker push $IMAGE_NAME
-          - ssh $HOST -l $USER 'docker stack deploy -c $COMPOSE_FILE ciri'
+          - ssh $HOST -l $SERVER_USER 'docker service update --image winfield/ciri-api:latest ciri_api'
