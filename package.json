@@ -42,7 +42,7 @@
     "koa-bodyparser": "^4.2.0",
     "koa-router": "^7.3.0",
     "pg": "^7.4.0",
-    "sequelize": "^4.4.2",
-    "sequelize-cli": "^2.7.0"
+    "sequelize": "^4.22.11",
+    "sequelize-cli": "^3.1.0"
   }
 }
