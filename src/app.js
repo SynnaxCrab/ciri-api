@@ -14,22 +14,10 @@ const router = new koaRouter()
 const PORT = 3000
 
 app.use(cors())
-app.use(koaBody())
 
-router.post(
-  '/graphql',
-  graphqlKoa(async ctx => {
-    return {
-      schema: schema,
-    };
-  })
-);
-
-router.get('/graphql', graphqlKoa({ schema: schema }))
-
-router.get('/graphiql', graphiqlKoa({
-  endpointURL: '/graphql'
-}))
+router.post('/graphql', koaBody(), graphqlKoa({ schema }))
+router.get('/graphql', graphqlKoa({ schema }))
+router.get('/graphiql', graphiqlKoa({ endpointURL: '/graphql' }))
 
 app.use(router.routes())
 app.use(router.allowedMethods())
