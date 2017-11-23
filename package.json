@@ -8,6 +8,7 @@
   },
   "scripts": {
     "build": "babel src --out-dir dist --copy-files",
+    "postinstall": "yarn build",
     "start": "node dist/app.js",
     "dev": "nodemon index.js",
     "test": "mocha --recursive --compilers js:babel-register",
