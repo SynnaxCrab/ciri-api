@@ -15,7 +15,7 @@ script:
 
 deploy:
   provider: script
-  script: yarn build:up && cd up && ../bin/up
+  script: yarn build:up && cd up && yarn install --prod && ../bin/up
   skip_cleanup: true
 
 after_success:
