@@ -1,0 +1,25 @@
+language: node_js
+
+before_install:
+  - curl -sfLO https://raw.githubusercontent.com/apex/up/master/install.sh
+
+install:
+  - sh install.sh -b ./bin
+  - ./bin/up version
+
+cache: yarn
+
+script:
+  - yarn test
+
+deploy:
+  provider: script
+  script: ./bin/up
+  skip_cleanup: true
+
+after_success:
+  - ./bin/up url
+
+env:
+  global:
+    AWS_REGION: us-west-2
