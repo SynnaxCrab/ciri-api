@@ -11,7 +11,7 @@ import schema from './data/schema'
 
 const app = new Koa()
 const router = new koaRouter()
-const PORT = 3000
+const { PORT = 3000 } = process.env
 
 app.use(cors())
 
