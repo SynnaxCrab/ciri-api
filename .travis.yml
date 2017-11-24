@@ -4,7 +4,7 @@ before_install:
   - curl -sfLO https://raw.githubusercontent.com/apex/up/master/install.sh
 
 install:
-  - sh install.sh -b ./bin
+  - sh install.sh -b ./bin 0.3.6
   - ./bin/up version
 
 cache: yarn
