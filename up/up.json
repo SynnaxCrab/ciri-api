@@ -1,0 +1,9 @@
+{
+  "name": "ciri-api",
+  "hooks": {
+    "build": "make"
+   },
+   "proxy": {
+     "command": "./node-v9.2.0-linux-x64/bin/node app.js"
+   }
+}
