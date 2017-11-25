@@ -5,5 +5,16 @@
    },
    "proxy": {
      "command": "./node-v9.2.0-linux-x64/bin/node app.js"
+   },
+   "stages": {
+     "production": {
+       "domain": "api.memors.me"
+     },
+     "staging": {
+       "domain": "stage.memors.me"
+     },
+     "development": {
+       "domain": "dev.memors.me"
+     }
    }
 }
