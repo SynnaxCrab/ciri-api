@@ -1,10 +1,10 @@
 # Ciri GraphQL API #
 
+[![build status](https://travis-ci.org/winfield/ciri-api.svg?branch=master)](https://travis-ci.org/winfield/ciri-api)
 [![Greenkeeper badge](https://badges.greenkeeper.io/winfield/ciri-api.svg)](https://greenkeeper.io/)
 
 GraphQL backend API for Ciri App.
 
-![build status](https://travis-ci.org/winfield/ciri-api.svg?branch=master)
 
 ## Development ##
 
