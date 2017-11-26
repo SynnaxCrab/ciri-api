@@ -2,6 +2,8 @@
 
 GraphQL backend API for Ciri App.
 
+![build status](https://travis-ci.org/winfield/ciri-api.svg?branch=master)
+
 ## Development ##
 
 ````
