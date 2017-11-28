@@ -23,4 +23,7 @@ app.use(router.routes())
 app.use(router.allowedMethods())
 
 console.log("Started on port: " + PORT)
+console.log(`PGHOST is: ${process.env.PGHOST}`)
+console.log(`PGDATABASE is: ${process.env.PGDATABASE}`)
+console.log(`PGUSER is: ${process.env.PGUSER}`)
 app.listen(PORT)
