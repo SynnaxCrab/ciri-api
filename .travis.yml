@@ -15,8 +15,10 @@ script:
 
 deploy:
   provider: script
-  script: yarn build:up && cd up && yarn install --prod && ../bin/up deploy production
+  script: sh ./up-deploy.sh
   skip_cleanup: true
+  on:
+    branch: master
 
 after_success:
   - ./bin/up url
