@@ -11,7 +11,7 @@
     "build:up": "babel src --out-dir up --copy-files && cp package.json up",
     "start": "node dist/app.js",
     "dev": "nodemon index.js",
-    "test": "mocha --recursive --compilers js:babel-register",
+    "test": "mocha --require babel-core/register test/**/*.js",
     "migrate:dev": "sequelize --config src/config/database.js db:migrate",
     "rollback:dev": "sequelize --config src/config/database.js db:migrate:undo",
     "migrate:prod": "sequelize --config config/database.js db:migrate",
@@ -22,6 +22,7 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-register": "^6.26.0",
     "chai": "^4.1.2",
@@ -43,8 +44,8 @@
     "koa-bodyparser": "^4.2.0",
     "koa-router": "^7.3.0",
     "pg": "^7.4.0",
+    "pg-sql": "^1.1.0",
     "pg-sql-helpers": "^0.1.4",
-    "sequelize": "^4.22.11",
-    "sequelize-cli": "^3.1.0"
+    "uuid": "^3.1.0"
   }
 }

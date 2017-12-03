@@ -1,34 +1,41 @@
-function generateSlug(article) {
-  return article.title.toLowerCase().split(' ').join('-')
-  + '-'
-  + article.id.split('-').pop();
+import { sql } from 'pg-sql'
+import { INSERT, WHERE } from 'pg-sql-helpers'
+import uuidv4 from 'uuid/v4'
+
+import { query } from '../db'
+
+const generateSlug = (id, title) => `${title.toLowerCase().split(' ').join('-')}-${id.split('-').pop()}`
+
+const findSQL = () => sql`
+  SELECT *
+  FROM articles
+  LIMIT 5
+`
+
+export const find = async () => await query(findSQL())
+
+const createSQL = ({ title, body }) => {
+  const id = uuidv4()
+  const slug = title.toLowerCase().split(' ').join('-')
+  const now = new Date()
+  return sql`
+    ${INSERT('articles', { 
+      id: id,
+      title: title,
+      body: body,
+      slug: slug,
+      createdAt: now,
+      updatedAt: now 
+    })}
+    RETURNING *
+  `
 }
 
-export default function(sequelize, DataTypes) {
-  var Article = sequelize.define('Article', {
-    id: {
-      primaryKey: true,
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4,
-    },
-    title: DataTypes.STRING,
-    body: DataTypes.TEXT,
-    slug: DataTypes.STRING
-  }, {
-    scopes: {
-      recent: {
-        order: [['createdAt', 'DESC']],
-        limit: 5
-      }
-    },
+export const create = async (data) => query(createSQL(data))
 
-    hooks: {
-      beforeValidate: function(article, options, fn) {
-        article.slug = generateSlug(article);
-        fn(null, article);
-      }
-    }
-  });
+const destroySQL = (id) => sql`
+  DELETE FROM articles
+  ${WHERE({ id: id })}
+`
 
-  return Article;
-};
+export const destroy = async (id) => query(destroySQL(id))

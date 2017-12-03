@@ -1,22 +1,18 @@
-import models from '../models'
-
-const Article = models.Article
+import * as Article from '../models/article'
 
 const resolveFunctions = {
   Query: {
     articles: async() => {
-      return await Article.scope('recent').findAll()
+      const res = await Article.find()
+      return res.rows
     }
   },
   Mutation: {
     createArticle: async (_, data) => {
-      return await Article.create(data)
+      const res = await Article.insert(data)
+      return res.rows
     },
-    destroyArticle: async (_, { id }) => {
-      const article = await Article.findById(id)
-      await article.destroy()
-      return article
-    }
+    destroyArticle: async (_, { id }) => await Article.destroy(id)
   }
 }
 
