@@ -11,7 +11,7 @@
     "build:up": "babel src --out-dir up --copy-files && cp package.json up",
     "start": "node dist/app.js",
     "dev": "nodemon index.js",
-    "test": "mocha --recursive --compilers js:babel-register",
+    "test": "mocha --require babel-core/register test/**/*.js",
     "migrate:dev": "sequelize --config src/config/database.js db:migrate",
     "rollback:dev": "sequelize --config src/config/database.js db:migrate:undo",
     "migrate:prod": "sequelize --config config/database.js db:migrate",

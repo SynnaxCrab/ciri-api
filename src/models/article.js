@@ -4,6 +4,8 @@ import uuidv4 from 'uuid/v4'
 
 import { query } from '../db'
 
+const generateSlug = (id, title) => `${title.toLowerCase().split(' ').join('-')}-${id.split('-').pop()}`
+
 const findSQL = () => sql`
   SELECT *
   FROM articles
