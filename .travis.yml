@@ -6,6 +6,7 @@ before_install:
 install:
   - sh install.sh -b ./bin 0.3.6
   - ./bin/up version
+  - yarn global add node-prune
   - yarn
 
 cache: yarn
