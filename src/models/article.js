@@ -16,13 +16,12 @@ export const find = async () => await query(findSQL())
 
 const createSQL = ({ title, body }) => {
   const id = uuidv4()
-  const slug = title.toLowerCase().split(' ').join('-')
   return sql`
     ${INSERT('articles', { 
       id: id,
       title: title,
       body: body,
-      slug: slug,
+      slug: generateSlug(id, title),
     })}
     RETURNING *
   `
