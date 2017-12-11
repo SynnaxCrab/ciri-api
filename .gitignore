@@ -3,3 +3,4 @@ dist
 up
 .env
 yarn-error.log
+coverage
