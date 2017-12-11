@@ -2,7 +2,7 @@ import { makeExecutableSchema } from 'graphql-tools'
 
 import resolvers from './resolvers'
 
-const schema = `
+const typeDefs = `
 type Article {
   id: ID!
   title: String
@@ -19,6 +19,6 @@ type Mutation {
 }
 `
 export default makeExecutableSchema({
-  typeDefs: schema,
+  typeDefs,
   resolvers,
 })
