@@ -7,7 +7,7 @@ import koaRouter from 'koa-router'
 import koaBody from 'koa-bodyparser'
 import { graphqlKoa, graphiqlKoa } from 'apollo-server-koa'
 
-import schema from './data/schema'
+import schema from './schema'
 
 const app = new Koa()
 const router = new koaRouter()
