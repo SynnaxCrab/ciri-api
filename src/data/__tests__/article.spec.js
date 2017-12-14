@@ -1,5 +1,11 @@
 import { GraphQLID, GraphQLString, GraphQLNonNull } from 'graphql'
-import schema from '../schema'
+import { buildSchemaFromTypeDefinitions} from 'graphql-tools'
+import { typeDefs } from '../article'
+
+const schema = buildSchemaFromTypeDefinitions([
+  typeDefs,
+  'type Query { query: Query }',
+])
 
 const articleType = schema.getType('Article')
 
