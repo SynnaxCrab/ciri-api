@@ -20,7 +20,9 @@ yarn install && yarn test
 
 ## Deployment ##
 
-Ciri use docker for deployment. It use Bitbucket Pipeline to archieve CI/CD.
+### Docker ###
+
+Ciri can use docker for deployment. It use Bitbucket Pipeline to archieve CI/CD.
 
 You can also build your own docker image by running the following command in the project root dictionary.
 
@@ -29,3 +31,7 @@ docker build -t YOUR_IMAGE_NAME .
 ````
 
 Ciri uses .env to expose environment variables, you need to fill in the fields specified in .env.sample.
+
+### AWS Lambda ###
+
+Ciri also support AWS Lambda through apex/up.
