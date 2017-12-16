@@ -19,5 +19,5 @@ const SchemaDefinition = `
 
 export default makeExecutableSchema({
   typeDefs: [SchemaDefinition, RootQuery, Article],
-  articleResolvers,
+  resolvers: articleResolvers,
 })

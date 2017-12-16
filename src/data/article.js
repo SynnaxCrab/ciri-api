@@ -7,9 +7,12 @@ export const typeDefs = `
     body: String
   }
 `
+
 export const resolvers = {
-  articles: async() => {
-    const res = await Article.find()
-    return res.rows
-  }
+  Query: {
+    articles: async () => {
+      const res = await Article.find()
+      return res.rows
+    }
+  },
 }
