@@ -9,6 +9,11 @@ const RootQuery = `
   type Query {
     articles: [Article]
   }
+
+  type Mutation {
+    createArticle(title: String, body: String): Article
+    destroyArticle(id: ID!): Article
+  }
 `
 
 const SchemaDefinition = `
