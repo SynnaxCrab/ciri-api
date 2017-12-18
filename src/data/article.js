@@ -11,9 +11,13 @@ export const typeDefs = `
 export const resolvers = {
   Query: {
     articles: async () => {
-      const res = await Article.find()
+      const res = await Article.findAll()
       return res.rows
-    }
+    },
+    article: async (_, { id }) => {
+      const res = await Article.find(id)
+      return res.rows[0]
+    },
   },
   Mutation: {
     createArticle: async (_, data) => {

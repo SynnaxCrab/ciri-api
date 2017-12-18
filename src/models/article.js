@@ -6,13 +6,19 @@ import { query } from '../db'
 
 const generateSlug = (id, title) => `${title.toLowerCase().split(' ').join('-')}-${id.split('-').pop()}`
 
-const findSQL = () => sql`
+const findAllSQL = () => sql`
   SELECT *
   FROM articles
   LIMIT 5
 `
 
-export const find = async () => await query(findSQL())
+export const findAll = async () => await query(findSQL())
+
+const findSQL = (id) => sql`
+  SELECT *
+  FROM articles
+  ${WHERE({ id: id })}
+`
 
 const createSQL = ({ title, body }) => {
   const id = uuidv4()
