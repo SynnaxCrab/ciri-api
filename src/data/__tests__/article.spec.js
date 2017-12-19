@@ -22,5 +22,25 @@ describe('Schema', () => {
     test('id field type is GraphQLID', () => {
       expect(articleType.getFields().id.type.ofType).toBe(GraphQLID)
     })
+
+    test('has field title', () => {
+      expect(articleType.getFields()).toHaveProperty('title')
+    })
+
+    test('title field is not null', () => {
+      expect(articleType.getFields().title.type.constructor).toBe(GraphQLNonNull)
+    })
+
+    test('title field type is GraphQLString', () => {
+      expect(articleType.getFields().title.type.ofType).toBe(GraphQLString)
+    })
+
+    test('has field body', () => {
+      expect(articleType.getFields()).toHaveProperty('body')
+    })
+
+    test('body field type is GraphQLString', () => {
+      expect(articleType.getFields().body.type).toBe(GraphQLString)
+    })
   })
 })
