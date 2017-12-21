@@ -7,40 +7,40 @@ const schema = buildSchemaFromTypeDefinitions([
   'type Query { query: Query }',
 ])
 
-const articleType = schema.getType('Article')
+const article = schema.getType('Article')
 
 describe('Schema', () => {
-  describe('Article Type', () => {
+  describe('Article Types', () => {
     test('has field id', () => {
-      expect(articleType.getFields()).toHaveProperty('id')
+      expect(article.getFields()).toHaveProperty('id')
     })
 
     test('id field is not null', () => {
-      expect(articleType.getFields().id.type.constructor).toBe(GraphQLNonNull)
+      expect(article.getFields().id.type.constructor).toBe(GraphQLNonNull)
     })
 
     test('id field type is GraphQLID', () => {
-      expect(articleType.getFields().id.type.ofType).toBe(GraphQLID)
+      expect(article.getFields().id.type.ofType).toBe(GraphQLID)
     })
 
     test('has field title', () => {
-      expect(articleType.getFields()).toHaveProperty('title')
+      expect(article.getFields()).toHaveProperty('title')
     })
 
     test('title field is not null', () => {
-      expect(articleType.getFields().title.type.constructor).toBe(GraphQLNonNull)
+      expect(article.getFields().title.type.constructor).toBe(GraphQLNonNull)
     })
 
     test('title field type is GraphQLString', () => {
-      expect(articleType.getFields().title.type.ofType).toBe(GraphQLString)
+      expect(article.getFields().title.type.ofType).toBe(GraphQLString)
     })
 
     test('has field body', () => {
-      expect(articleType.getFields()).toHaveProperty('body')
+      expect(article.getFields()).toHaveProperty('body')
     })
 
     test('body field type is GraphQLString', () => {
-      expect(articleType.getFields().body.type).toBe(GraphQLString)
+      expect(article.getFields().body.type).toBe(GraphQLString)
     })
   })
 })
