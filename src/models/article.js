@@ -1,5 +1,5 @@
 import { sql } from 'pg-sql'
-import { INSERT, WHERE } from 'pg-sql-helpers'
+import { INSERT, UPDATE, WHERE } from 'pg-sql-helpers'
 import uuidv4 from 'uuid/v4'
 
 import { query } from '../db'
@@ -34,6 +34,18 @@ const createSQL = ({ title, body }) => {
 }
 
 export const create = async (data) => query(createSQL(data))
+
+const updateSQL = (id, { title, body }) => {
+  return sql`
+    ${UPDATE('articles', { 
+      title: title,
+      body: body,
+      slug: generateSlug(id, title),
+    })}
+    ${WHERE({ id: id })}
+    RETURNING *
+  `
+}
 
 const destroySQL = (id) => sql`
   DELETE FROM articles
