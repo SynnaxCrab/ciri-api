@@ -24,6 +24,10 @@ export const resolvers = {
       const res = await Article.create(data)
       return res.rows
     },
+    updateArticle: async (_, data) => {
+      const res = await Article.update(data.id, data)
+      return res.rows
+    },
     destroyArticle: async (_, { id }) => await Article.destroy(id)
   },
 }

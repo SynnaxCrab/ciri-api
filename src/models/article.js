@@ -47,6 +47,8 @@ const updateSQL = (id, { title, body }) => {
   `
 }
 
+export const update = async (id, data) => query(updateSQL(id, data))
+
 const destroySQL = (id) => sql`
   DELETE FROM articles
   ${WHERE({ id: id })}
