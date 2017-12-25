@@ -22,11 +22,11 @@ export const resolvers = {
   Mutation: {
     createArticle: async (_, data) => {
       const res = await Article.create(data)
-      return res.rows
+      return res.rows[0]
     },
     updateArticle: async (_, data) => {
       const res = await Article.update(data.id, data)
-      return res.rows
+      return res.rows[0]
     },
     destroyArticle: async (_, { id }) => await Article.destroy(id)
   },
