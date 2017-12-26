@@ -6,6 +6,11 @@ export const typeDefs = `
     title: String!
     body: String
   }
+
+  input ArticleInput {
+    title: String
+    body: String
+  }
 `
 
 export const resolvers = {
