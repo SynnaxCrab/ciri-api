@@ -11,11 +11,7 @@
     "build:up": "babel src --out-dir up --copy-files && cp package.json up",
     "start": "node dist/app.js",
     "dev": "nodemon index.js",
-    "test": "jest",
-    "migrate:dev": "sequelize --config src/config/database.js db:migrate",
-    "rollback:dev": "sequelize --config src/config/database.js db:migrate:undo",
-    "migrate:prod": "sequelize --config config/database.js db:migrate",
-    "rollback:prod": "sequelize --config config/database.js db:migrate:undo"
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
