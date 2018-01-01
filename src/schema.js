@@ -8,7 +8,7 @@ import {
 const RootQuery = `
   type Query {
     articles: [Article]
-    article: [Article]
+    article(id: ID!): Article
   }
 `
 

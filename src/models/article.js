@@ -12,13 +12,15 @@ const findAllSQL = () => sql`
   LIMIT 5
 `
 
-export const findAll = async () => await query(findSQL())
+export const findAll = async () => await query(findAllSQL())
 
 const findSQL = (id) => sql`
   SELECT *
   FROM articles
   ${WHERE({ id: id })}
 `
+
+export const find = async (id) => await query(findSQL(id))
 
 const createSQL = ({ title, body }) => {
   const id = uuidv4()

@@ -21,6 +21,7 @@ export const resolvers = {
     },
     article: async (_, { id }) => {
       const res = await Article.find(id)
+      console.log(res.rows[0])
       return res.rows[0]
     },
   },
