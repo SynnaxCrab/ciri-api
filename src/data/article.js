@@ -26,8 +26,8 @@ export const resolvers = {
     },
   },
   Mutation: {
-    createArticle: async (_, data) => {
-      const res = await Article.create(data)
+    createArticle: async (_, { article }) => {
+      const res = await Article.create(article)
       return res.rows[0]
     },
     updateArticle: async (_, data) => {
@@ -36,4 +36,7 @@ export const resolvers = {
     },
     destroyArticle: async (_, { id }) => await Article.destroy(id)
   },
+  Article: {
+    title: ({ title }) => title.toUpperCase()
+  }
 }
