@@ -15,7 +15,7 @@ const RootQuery = `
 const RootMutation = `
   type Mutation {
     createArticle(article: ArticleInput!): Article
-    updateArticle(id: ID!, title: String, body: String): Article
+    updateArticle(id: ID!, article: ArticleInput!): Article
     destroyArticle(id: ID!): Article
   }
 `
