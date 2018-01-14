@@ -1,4 +1,4 @@
-import * as Article from '../models/article'
+import * as Article from "../models/article"
 
 export const typeDefs = `
   type Article {
@@ -34,9 +34,9 @@ export const resolvers = {
       const res = await Article.update(data.id, article)
       return res.rows[0]
     },
-    destroyArticle: async (_, { id }) => await Article.destroy(id)
+    destroyArticle: async (_, { id }) => await Article.destroy(id),
   },
   Article: {
-    title: ({ title }) => title.toUpperCase()
-  }
+    title: ({ title }) => title.toUpperCase(),
+  },
 }
