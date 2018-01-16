@@ -7,7 +7,7 @@ export const typeDefs = `
     body: String
   }
 
-  input ArticleInput {
+  input createArticleInput {
     title: String
     body: String
   }
