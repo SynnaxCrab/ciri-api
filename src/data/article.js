@@ -11,6 +11,16 @@ export const typeDefs = `
     title: String
     body: String
   }
+
+  input updateArticleInput {
+    id: ID!
+    title: String
+    body: String
+  }
+
+  input deleteArticleInput {
+    id: ID!
+  }
 `
 
 export const resolvers = {
@@ -26,15 +36,15 @@ export const resolvers = {
     },
   },
   Mutation: {
-    createArticle: async (_, { article }) => {
-      const res = await Article.create(article)
+    createArticle: async (_, { input }) => {
+      const res = await Article.create(input)
       return res.rows[0]
     },
-    updateArticle: async (_, { id, article }) => {
-      const res = await Article.update(data.id, article)
+    updateArticle: async (_, { input }) => {
+      const res = await Article.update(input.id, input)
       return res.rows[0]
     },
-    destroyArticle: async (_, { id }) => await Article.destroy(id),
+    destroyArticle: async (_, { input }) => await Article.destroy(input.id),
   },
   Article: {
     title: ({ title }) => title.toUpperCase(),
