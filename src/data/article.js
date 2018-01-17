@@ -21,8 +21,6 @@ export const typeDefs = `
   input DeleteArticleInput {
     id: ID!
   }
-
-  type 
 `
 
 export const resolvers = {
