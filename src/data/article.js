@@ -7,20 +7,22 @@ export const typeDefs = `
     body: String
   }
 
-  input createArticleInput {
+  input AddArticleInput {
     title: String
     body: String
   }
 
-  input updateArticleInput {
+  input UpdateArticleInput {
     id: ID!
     title: String
     body: String
   }
 
-  input deleteArticleInput {
+  input DeleteArticleInput {
     id: ID!
   }
+
+  type 
 `
 
 export const resolvers = {
@@ -36,7 +38,7 @@ export const resolvers = {
     },
   },
   Mutation: {
-    createArticle: async (_, { input }) => {
+    addArticle: async (_, { input }) => {
       const res = await Article.create(input)
       return res.rows[0]
     },
@@ -44,7 +46,7 @@ export const resolvers = {
       const res = await Article.update(input.id, input)
       return res.rows[0]
     },
-    destroyArticle: async (_, { input }) => await Article.destroy(input.id),
+    deleteArticle: async (_, { input }) => await Article.destroy(input.id),
   },
   Article: {
     title: ({ title }) => title.toUpperCase(),
