@@ -1,7 +1,7 @@
 import { makeExecutableSchema } from 'graphql-tools'
 
 import {
-  typeDefs as Article,
+  typeDefs as articleTypeDefs,
   resolvers as articleResolvers
 } from './data/article'
 
@@ -28,6 +28,6 @@ const SchemaDefinition = `
 `
 
 export default makeExecutableSchema({
-  typeDefs: [SchemaDefinition, RootQuery, RootMutation, Article],
+  typeDefs: [SchemaDefinition, RootQuery, RootMutation, articleTypeDefs],
   resolvers: articleResolvers,
 })

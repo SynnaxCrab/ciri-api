@@ -13,7 +13,7 @@ export const typeDefs = `
   }
 
   type AddArticlePayload {
-    article: article!
+    article: Article!
   }
 
   input UpdateArticleInput {
@@ -23,7 +23,7 @@ export const typeDefs = `
   }
 
   type UpdateArticlePayload {
-    article: article!
+    article: Article!
   }
 
   input DeleteArticleInput {
