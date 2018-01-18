@@ -12,14 +12,26 @@ export const typeDefs = `
     body: String
   }
 
+  type AddArticlePayload {
+    article: article!
+  }
+
   input UpdateArticleInput {
     id: ID!
     title: String
     body: String
   }
 
+  type UpdateArticlePayload {
+    article: article!
+  }
+
   input DeleteArticleInput {
     id: ID!
+  }
+
+  type DeleteArticlePayload {
+    deletedArticleId: ID!
   }
 `
 
