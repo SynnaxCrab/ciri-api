@@ -50,13 +50,22 @@ export const resolvers = {
   Mutation: {
     addArticle: async (_, { input }) => {
       const res = await Article.create(input)
-      return res.rows[0]
+      return {
+        article: res.rows[0]
+      }
     },
     updateArticle: async (_, { input }) => {
       const res = await Article.update(input.id, input)
-      return res.rows[0]
+      return {
+        article: res.rows[0]
+      }
     },
-    deleteArticle: async (_, { input }) => await Article.destroy(input.id),
+    deleteArticle: async (_, { input }) => {
+      const res = await Article.destroy(input.id)
+      return {
+        deletedArticleId: input.id
+      }
+    }
   },
   Article: {
     title: ({ title }) => title.toUpperCase(),
