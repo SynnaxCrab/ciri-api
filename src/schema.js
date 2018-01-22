@@ -1,9 +1,9 @@
-import { makeExecutableSchema } from 'graphql-tools'
+import { makeExecutableSchema } from "graphql-tools"
 
 import {
   typeDefs as articleTypeDefs,
-  resolvers as articleResolvers
-} from './data/article'
+  resolvers as articleResolvers,
+} from "./data/article"
 
 const RootQuery = `
   type Query {

@@ -1,10 +1,14 @@
-import { sql } from 'pg-sql'
-import { INSERT, UPDATE, WHERE } from 'pg-sql-helpers'
-import uuidv4 from 'uuid/v4'
+import { sql } from "pg-sql"
+import { INSERT, UPDATE, WHERE } from "pg-sql-helpers"
+import uuidv4 from "uuid/v4"
 
-import { query } from '../db'
+import { query } from "../db"
 
-const generateSlug = (id, title) => `${title.toLowerCase().split(' ').join('-')}-${id.split('-').pop()}`
+const generateSlug = (id, title) =>
+  `${title
+    .toLowerCase()
+    .split(" ")
+    .join("-")}-${id.split("-").pop()}`
 
 const findAllSQL = () => sql`
   SELECT *
@@ -14,18 +18,18 @@ const findAllSQL = () => sql`
 
 export const findAll = async () => await query(findAllSQL())
 
-const findSQL = (id) => sql`
+const findSQL = id => sql`
   SELECT *
   FROM articles
   ${WHERE({ id: id })}
 `
 
-export const find = async (id) => await query(findSQL(id))
+export const find = async id => await query(findSQL(id))
 
 const createSQL = ({ title, body }) => {
   const id = uuidv4()
   return sql`
-    ${INSERT('articles', { 
+    ${INSERT("articles", {
       id: id,
       title: title,
       body: body,
@@ -35,11 +39,11 @@ const createSQL = ({ title, body }) => {
   `
 }
 
-export const create = async (data) => query(createSQL(data))
+export const create = async data => query(createSQL(data))
 
 const updateSQL = (id, { title, body }) => {
   return sql`
-    ${UPDATE('articles', { 
+    ${UPDATE("articles", {
       title: title,
       body: body,
       slug: generateSlug(id, title),
@@ -51,9 +55,9 @@ const updateSQL = (id, { title, body }) => {
 
 export const update = async (id, data) => query(updateSQL(id, data))
 
-const destroySQL = (id) => sql`
+const destroySQL = id => sql`
   DELETE FROM articles
   ${WHERE({ id: id })}
 `
 
-export const destroy = async (id) => query(destroySQL(id))
+export const destroy = async id => query(destroySQL(id))
