@@ -30,9 +30,9 @@ const createSQL = ({ title, body }) => {
   const id = uuidv4()
   return sql`
     ${INSERT("articles", {
-      id: id,
-      title: title,
-      body: body,
+      id,
+      title,
+      body,
       slug: generateSlug(id, title),
     })}
     RETURNING *
@@ -44,9 +44,8 @@ export const create = async data => query(createSQL(data))
 const updateSQL = (id, { title, body }) => {
   return sql`
     ${UPDATE("articles", {
-      title: title,
-      body: body,
-      slug: generateSlug(id, title),
+      title,
+      body,
     })}
     ${WHERE({ id: id })}
     RETURNING *
