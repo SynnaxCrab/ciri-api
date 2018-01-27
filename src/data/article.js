@@ -7,6 +7,11 @@ export const typeDefs = `
     body: String
   }
 
+  type ArticleFeed {
+    cursor: String!
+    articles: [Article]!
+  }
+
   input AddArticleInput {
     title: String
     body: String
