@@ -36,6 +36,7 @@
     "dotenv": "^5.0.0",
     "graphql": "^0.12.3",
     "graphql-tools": "^2.18.0",
+    "graphql-type-json": "^0.1.4",
     "kcors": "2.2.1",
     "koa": "^2.4.1",
     "koa-bodyparser": "^4.2.0",

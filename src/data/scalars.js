@@ -1,8 +1,10 @@
 import { GraphQLScalarType } from "graphql"
+import GraphQLJSON from "graphql-type-json"
 import { Kind } from "graphql/language"
 
 export const typeDefs = `
   scalar DateTime
+  scalar JSON
 `
 
 const resolvers = {
@@ -22,4 +24,5 @@ const resolvers = {
       return null
     },
   }),
+  JSON: GraphQLJSON,
 }
