@@ -8,7 +8,7 @@ export const typeDefs = `
 `
 
 const resolvers = {
-  Date: new GraphQLScalarType({
+  DateTime: new GraphQLScalarType({
     name: "Date",
     description: "Date custom scalar type",
     parseValue(value) {
