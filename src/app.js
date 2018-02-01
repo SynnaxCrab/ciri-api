@@ -16,7 +16,7 @@ const app = new Koa()
 const router = new koaRouter()
 const { PORT = 3000 } = process.env
 
-router.post("/graphql", koaBody(), graphqlKoa({ schema }))
+router.post("/graphql", bodyParser(), graphqlKoa({ schema }))
 router.get("/graphql", graphqlKoa({ schema }))
 router.get("/graphiql", graphiqlKoa({ endpointURL: "/graphql" }))
 
