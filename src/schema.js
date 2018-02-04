@@ -5,6 +5,11 @@ import {
   resolvers as articleResolvers,
 } from "./data/article"
 
+import {
+  typeDefs as scalarTypeDefs,
+  resolvers as scalarResolvers,
+} from "./data/scalars"
+
 const RootQuery = `
   type Query {
     articles: [Article]
@@ -28,6 +33,12 @@ const SchemaDefinition = `
 `
 
 export default makeExecutableSchema({
-  typeDefs: [SchemaDefinition, RootQuery, RootMutation, articleTypeDefs],
+  typeDefs: [
+    SchemaDefinition,
+    RootQuery,
+    RootMutation,
+    articleTypeDefs,
+    scalarTypeDefs,
+  ],
   resolvers: articleResolvers,
 })
