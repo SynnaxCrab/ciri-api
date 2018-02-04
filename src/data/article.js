@@ -5,6 +5,7 @@ export const typeDefs = `
     id: ID!
     title: String!
     body: String
+    createdAt: DateTime
   }
 
   type ArticleFeed {
