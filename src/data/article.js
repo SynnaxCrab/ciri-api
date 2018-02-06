@@ -4,7 +4,7 @@ export const typeDefs = `
   type Article {
     id: ID!
     title: String!
-    body: String
+    body: JSON
     createdAt: DateTime
   }
 
@@ -15,7 +15,7 @@ export const typeDefs = `
 
   input AddArticleInput {
     title: String
-    body: String
+    body: JSON
   }
 
   type AddArticlePayload {
@@ -25,7 +25,7 @@ export const typeDefs = `
   input UpdateArticleInput {
     id: ID!
     title: String
-    body: String
+    body: JSON
   }
 
   type UpdateArticlePayload {
