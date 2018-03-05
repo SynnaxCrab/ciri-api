@@ -1,9 +1,12 @@
 import { GraphQLID, GraphQLString, GraphQLNonNull } from "graphql"
+import GraphQLJSON from 'graphql-type-json'
 import { buildSchemaFromTypeDefinitions } from "graphql-tools"
-import { typeDefs } from "../article"
+import { typeDefs as articleTypeDefs } from "../article"
+import { typeDefs as scalarTypeDefs } from "../scalars"
 
 const schema = buildSchemaFromTypeDefinitions([
-  typeDefs,
+  articleTypeDefs,
+  scalarTypeDefs,
   "type Query { query: Query }",
 ])
 
@@ -40,7 +43,7 @@ describe("Schema", () => {
     })
 
     test("body field type is GraphQLString", () => {
-      expect(article.getFields().body.type).toBe(GraphQLString)
+      expect(article.getFields().body.type.name).toBe("JSON")
     })
   })
 })
