@@ -1,14 +1,23 @@
 {
   "name": "ciri-api",
+  "lambda": {
+    "warm": true
+  },
   "hooks": {
     "build": "make"
    },
    "proxy": {
-     "command": "./node-v9.2.0-linux-x64/bin/node app.js"
+     "command": "./node-v9.9.0-linux-x64/bin/node app.js"
    },
    "stages": {
      "production": {
        "domain": "api.memors.me"
+     },
+     "staging": {
+      "domain": "staging.memors.com"
+     },
+     "dev": {
+      "domain": "dev.memors.com"
      }
    }
 }
