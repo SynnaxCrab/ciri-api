@@ -1,11 +1,6 @@
 language: node_js
 
-#before_install:
-#  - curl -sfLO https://raw.githubusercontent.com/apex/up/master/install.sh
-
 install:
-  #  - sh install.sh -b ./bin 0.4.5
-  # - ./bin/up version
   - sudo chown -R $(whoami) /usr/local/bin
   - curl -sf https://up.apex.sh/install | sh
   - up upgrade
@@ -26,7 +21,7 @@ deploy:
     branch: master
 
 after_success:
-  - ./bin/up url
+  - up url
 
 env:
   global:

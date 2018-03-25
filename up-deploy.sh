@@ -6,5 +6,4 @@ echo PGPASSWORD=$PGPASSWORD >> .env
 echo PGDATABASE=$PGDATABASE >> .env
 yarn install --prod
 node-prune
-#../bin/up deploy production
 up deploy production
