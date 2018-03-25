@@ -14,10 +14,10 @@
        "domain": "api.memors.me"
      },
      "staging": {
-       "domain": "staging.memors.com"
+       "domain": "staging.memors.me"
      },
      "development": {
-       "domain": "dev.memors.com"
+       "domain": "dev.memors.me"
      }
    }
 }
