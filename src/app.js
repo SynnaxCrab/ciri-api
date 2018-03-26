@@ -22,4 +22,5 @@ app.use(router.allowedMethods())
 app.use(cors())
 app.use(bodyParser())
 
+console.log(`App started on PORT: ${PORT}`)
 app.listen(PORT)
