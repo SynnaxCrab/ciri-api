@@ -28,7 +28,7 @@
     "jest": "^22.0.3",
     "nodemon": "^1.11.0",
     "prettier": "1.11.0",
-    "rewire": "^3.0.2",
+    "rewire": "^4.0.0",
     "rosie": "^1.6.0"
   },
   "dependencies": {
