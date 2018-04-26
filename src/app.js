@@ -17,9 +17,9 @@ router.post("/graphql", bodyParser(), graphqlKoa({ schema }))
 router.get("/graphql", graphqlKoa({ schema }))
 router.get("/graphiql", graphiqlKoa({ endpointURL: "/graphql" }))
 
+app.use(cors({ credentials: true }))
 app.use(router.routes())
 app.use(router.allowedMethods())
-app.use(cors())
 app.use(bodyParser())
 
 console.log(`App started on PORT: ${PORT}`)
