@@ -3,9 +3,6 @@
   "version": "0.0.1",
   "description": "Ciri API",
   "main": "index.js",
-  "engines": {
-    "node": "9.2.0"
-  },
   "scripts": {
     "build": "babel src --out-dir dist --copy-files",
     "build:up": "babel src --out-dir up --copy-files && cp package.json up",
