@@ -27,13 +27,13 @@ const findSQL = id => sql`
 export const find = async id => await query(findSQL(id))
 
 const createSQL = ({ title, body }) => {
-  const id = uuidv4()
+  const uuid = uuidv4()
   return sql`
     ${INSERT("articles", {
-      id,
+      uuid,
       title,
       body,
-      slug: generateSlug(id, title),
+      slug: generateSlug(uuid, title),
     })}
     RETURNING *
   `

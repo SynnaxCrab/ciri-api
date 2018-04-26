@@ -1,4 +1,4 @@
-import * as Article from "../models/article"
+import * as Article from '../models/article'
 
 export const typeDefs = `
   type Article {
@@ -49,7 +49,6 @@ export const resolvers = {
     },
     article: async (_, { id }) => {
       const res = await Article.find(id)
-      console.log(res.rows[0])
       return res.rows[0]
     },
   },
