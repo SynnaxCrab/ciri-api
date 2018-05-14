@@ -6,10 +6,10 @@ const auth = async (ctx, next) => {
   try {
     const payload = jwt.verify(accessToken, process.env.SECRET)
     ctx.user = await findUserByUuid(payload.id)
+    await next()
   } catch (e) {
-    console.log(e)
+    ctx.status = 401
   }
-  await next()
 }
 
 export default auth
