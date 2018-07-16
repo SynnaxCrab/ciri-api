@@ -1,0 +1,27 @@
+{
+  "name": "ciri-api",
+  "lambda": {
+    "warm": true
+  },
+  "regions": ["us-west-2"],
+  "hooks": {
+    "build": "yarn build:up",
+    "clean": "rm server.js"
+  },
+  "proxy": {
+    "command": "node server.js"
+  },
+  "stages": {
+    "production": {
+      "domain": "api.memors.me"
+    },
+    "staging": {
+      "domain": "api0.memors.me"
+    },
+    "development": {
+      "proxy": {
+        "command": "nodemon index.js"
+      }
+    }
+  }
+}
