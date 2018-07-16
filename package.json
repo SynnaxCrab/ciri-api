@@ -33,7 +33,7 @@
     "debug": "^3.1.0",
     "dotenv": "^5.0.0",
     "graphql": "^0.13.0",
-    "graphql-tools": "^2.18.0",
+    "graphql-tools": "^3.0.0",
     "graphql-type-json": "^0.2.0",
     "jsonwebtoken": "^8.2.1",
     "kcors": "2.2.1",
