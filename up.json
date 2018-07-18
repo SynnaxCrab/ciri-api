@@ -1,8 +1,6 @@
 {
   "name": "ciri-api",
-  "lambda": {
-    "warm": true
-  },
+  "profile": "lambda",
   "regions": ["us-west-2"],
   "hooks": {
     "build": "yarn build:up",
