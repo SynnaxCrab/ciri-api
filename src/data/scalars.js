@@ -1,16 +1,16 @@
-import { GraphQLScalarType } from "graphql"
-import GraphQLJSON from "graphql-type-json"
-import { Kind } from "graphql/language"
+import { GraphQLScalarType } from 'graphql'
+import GraphQLJSON from 'graphql-type-json'
+import { Kind } from 'graphql/language'
 
 export const typeDefs = `
   scalar DateTime
   scalar JSON
 `
 
-const resolvers = {
+export const resolvers = {
   DateTime: new GraphQLScalarType({
-    name: "DateTime",
-    description: "Date custom scalar type",
+    name: 'DateTime',
+    description: 'Date custom scalar type',
     parseValue(value) {
       return new Date(value) // value from the client
     },

@@ -74,5 +74,6 @@ export const resolvers = {
   },
   Article: {
     title: ({ title }) => title.toUpperCase(),
+    createdAt: ({ created_at }) => created_at,
   },
 }

@@ -27,5 +27,5 @@ const Mutation = `
 
 export default makeExecutableSchema({
   typeDefs: [Query, Mutation, articleTypeDefs, scalarTypeDefs],
-  resolvers: articleResolvers,
+  resolvers: Object.assign(articleResolvers, scalarResolvers),
 })
