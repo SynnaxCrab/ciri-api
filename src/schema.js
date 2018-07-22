@@ -1,23 +1,23 @@
-import { makeExecutableSchema } from "graphql-tools"
+import { makeExecutableSchema } from 'apollo-server-koa'
 
 import {
   typeDefs as articleTypeDefs,
   resolvers as articleResolvers,
-} from "./data/article"
+} from './data/article'
 
 import {
   typeDefs as scalarTypeDefs,
   resolvers as scalarResolvers,
-} from "./data/scalars"
+} from './data/scalars'
 
-const RootQuery = `
+const Query = `
   type Query {
     articles: [Article]
     article(id: ID!): Article
   }
 `
 
-const RootMutation = `
+const Mutation = `
   type Mutation {
     addArticle(input: AddArticleInput!): AddArticlePayload
     updateArticle(input: UpdateArticleInput!): UpdateArticlePayload
@@ -25,20 +25,7 @@ const RootMutation = `
   }
 `
 
-const SchemaDefinition = `
-  schema {
-    query: Query,
-    mutation: Mutation,
-  }
-`
-
 export default makeExecutableSchema({
-  typeDefs: [
-    SchemaDefinition,
-    RootQuery,
-    RootMutation,
-    articleTypeDefs,
-    scalarTypeDefs,
-  ],
+  typeDefs: [Query, Mutation, articleTypeDefs, scalarTypeDefs],
   resolvers: articleResolvers,
 })
