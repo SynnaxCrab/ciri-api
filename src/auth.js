@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken'
-import { findUserByUuid } from './db'
+import { findUserByUuid } from './db/user'
 
 const auth = async (ctx, next) => {
   const accessToken = ctx.cookies.get('access_token', { signed: true })
