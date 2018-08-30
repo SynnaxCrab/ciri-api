@@ -8,7 +8,7 @@ import QUERY from './query'
  * @param {any} uuid
  */
 
-const userSQLByUuid = uuid => sql`
+const userByUuidSQL = uuid => sql`
   SELECT *
   FROM users
   ${WHERE({ uuid })}
@@ -22,6 +22,6 @@ const userSQLByUuid = uuid => sql`
  */
 
 export const findUserByUuid = async uuid => {
-  const rows = await QUERY(userSQLByUuid(uuid))
+  const rows = await QUERY(userByUuidSQL(uuid))
   return rows[0]
 }
