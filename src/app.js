@@ -10,6 +10,11 @@ import schema from './schema'
 
 const server = new ApolloServer({
   schema,
+  playground: {
+    settings: {
+      'editor.cursorShape': 'line',
+    },
+  },
 })
 
 const app = new Koa()
