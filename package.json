@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "babel src --out-dir dist --copy-files",
-    "build:up":
-      "browserify src/app.js --node -u pg-native -u encoding -u bufferutil -u utf-8-validate  -t babelify > server.js ",
+    "build:up": "browserify src/app.js --node -u pg-native -u encoding -u bufferutil -u utf-8-validate  -t babelify > server.js ",
     "start": "node dist/app.js",
     "dev": "nodemon index.js",
     "test": "jest"
@@ -36,10 +35,12 @@
     "debug": "^3.1.0",
     "dotenv": "^6.0.0",
     "graphql": "^0.13.0",
+    "graphql-playground-middleware-koa": "^1.6.4",
     "graphql-type-json": "^0.2.0",
     "jsonwebtoken": "^8.2.1",
     "kcors": "2.2.2",
     "koa": "^2.4.1",
+    "koa-mount": "^3.0.0",
     "koa-session": "^5.8.1",
     "pg": "^7.4.0",
     "pg-sql": "^1.1.0",
