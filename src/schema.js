@@ -19,7 +19,7 @@ const Query = `
 
 const Mutation = `
   type Mutation {
-    addArticle(input: AddArticleInput!): AddArticlePayload
+    createArticle(input: CreateArticleInput!): CreateArticlePayload
     updateArticle(input: UpdateArticleInput!): UpdateArticlePayload
     deleteArticle(input: DeleteArticleInput!): DeleteArticlePayload
   }

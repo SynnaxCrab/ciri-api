@@ -21,5 +21,5 @@ app.use(cors({ credentials: true }))
 // app.use(auth)
 server.applyMiddleware({ app })
 
-console.log(`App started on PORT: ${PORT}`)
+console.log(`🚀  API started on PORT: ${PORT}, at URI: ${server.graphqlPath}`)
 app.listen(PORT)

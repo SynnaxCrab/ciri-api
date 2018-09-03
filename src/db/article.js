@@ -1,5 +1,6 @@
+import uuidv4 from 'uuid/v4'
 import { sql } from 'pg-sql'
-import { WHERE } from 'pg-sql-helpers'
+import { INSERT, UPDATE, WHERE } from 'pg-sql-helpers'
 import QUERY from './query'
 
 const generateArticleSlug = (id, title) =>
@@ -15,18 +16,18 @@ const allArticlesSQL = () => sql`
 `
 
 export const findAllArticles = async () => {
-  const rows = await QUERY(findAllSQL())
-  return rows[0]
+  const rows = await QUERY(allArticlesSQL())
+  return rows
 }
 
-const articleByIdSQL = id => sql`
+const articleByUuidSQL = uuid => sql`
   SELECT *
   FROM articles
-  ${WHERE({ id: id })}
+  ${WHERE({ uuid })}
 `
 
-export const findArticleById = async id => {
-  const rows = await QUERY(articleByIdSQL(id))
+export const findArticleByUuid = async uuid => {
+  const rows = await QUERY(articleByUuidSQL(uuid))
   return rows[0]
 }
 
@@ -48,28 +49,25 @@ export const createArticle = async data => {
   return rows[0]
 }
 
-const updateArticleSQL = (id, { title, body }) => {
+const updateArticleSQL = (uuid, { title, body }) => {
   return sql`
     ${UPDATE('articles', {
       title,
       body,
     })}
-    ${WHERE({ id: id })}
+    ${WHERE({ uuid })}
     RETURNING *
   `
 }
 
-export const update = async (id, data) => {
-  const rows = await QUERY(updateArticleSQL(id, data))
+export const updateArticle = async (uuid, data) => {
+  const rows = await QUERY(updateArticleSQL(uuid, data))
   return rows[0]
 }
 
-const deleteArticleSQL = id => sql`
+const deleteArticleSQL = uuid => sql`
   DELETE FROM articles
-  ${WHERE({ id: id })}
+  ${WHERE({ uuid })}
 `
 
-export const deleteArticle = async id => {
-  const rows = await QUERY(deleteArticleSQL(id))
-  return rows[0]
-}
+export const deleteArticle = async uuid => await QUERY(deleteArticleSQL(uuid))

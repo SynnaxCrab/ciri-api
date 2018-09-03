@@ -1,4 +1,10 @@
-import * as Article from '../models/article'
+import {
+  findAllArticles,
+  findArticleByUuid,
+  createArticle,
+  updateArticle,
+  deleteArticle,
+} from '../db/article'
 
 export const typeDefs = `
   type Article {
@@ -13,12 +19,12 @@ export const typeDefs = `
     articles: [Article]!
   }
 
-  input AddArticleInput {
+  input CreateArticleInput {
     title: String
     body: JSON
   }
 
-  type AddArticlePayload {
+  type CreateArticlePayload {
     article: Article!
   }
 
@@ -44,35 +50,28 @@ export const typeDefs = `
 export const resolvers = {
   Query: {
     articles: async () => {
-      const res = await Article.findAll()
-      return res.rows
+      return await findAllArticles()
     },
     article: async (_, { id }) => {
-      const res = await Article.find(id)
-      return res.rows[0]
+      return await findArticleByUuid(id)
     },
   },
   Mutation: {
-    addArticle: async (_, { input }) => {
-      const res = await Article.create(input)
-      return {
-        article: res.rows[0],
-      }
-    },
-    updateArticle: async (_, { input }) => {
-      const res = await Article.update(input.id, input)
-      return {
-        article: res.rows[0],
-      }
-    },
+    createArticle: async (_, { input }) => ({
+      article: await createArticle(input),
+    }),
+    updateArticle: async (_, { input }) => ({
+      article: await updateArticle(input.id, input),
+    }),
     deleteArticle: async (_, { input }) => {
-      const res = await Article.destroy(input.id)
+      await deleteArticle(input.id)
       return {
         deletedArticleId: input.id,
       }
     },
   },
   Article: {
+    id: ({ uuid }) => uuid,
     title: ({ title }) => title.toUpperCase(),
     createdAt: ({ created_at }) => created_at,
   },
