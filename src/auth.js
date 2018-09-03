@@ -7,7 +7,10 @@ const auth = async (ctx, next) => {
     return
   }
 
-  const accessToken = ctx.cookies.get('access_token', { signed: true })
+  const accessToken = ctx.cookies.get('access_token', {
+    signed: false,
+    secure: process.env.NODE_ENV === 'development' ? false : true,
+  })
   try {
     const payload = jwt.verify(accessToken, process.env.SECRET)
     ctx.user = await findUserByUuid(payload.id)
