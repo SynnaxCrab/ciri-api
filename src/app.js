@@ -31,7 +31,11 @@ app.use(
     }),
   ),
 )
-app.use(auth)
+
+if (app.env !== 'development') {
+  app.use(auth)
+}
+
 server.applyMiddleware({ app })
 
 console.log(`🚀  API started on PORT: ${PORT}, at URI: ${server.graphqlPath}`)
