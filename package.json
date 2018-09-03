@@ -6,7 +6,7 @@
   "scripts": {
     "build": "babel src --out-dir dist --copy-files",
     "build:up":
-      "browserify src/app.js --node -u pg-native -u encoding -t babelify > server.js ",
+      "browserify src/app.js --node -u pg-native -u encoding -u bufferutil -u utf-8-validate  -t babelify > server.js ",
     "start": "node dist/app.js",
     "dev": "nodemon index.js",
     "test": "jest"
