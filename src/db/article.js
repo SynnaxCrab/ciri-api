@@ -3,7 +3,7 @@ import { sql } from 'pg-sql'
 import { INSERT, UPDATE, WHERE } from 'pg-sql-helpers'
 import QUERY from './query'
 
-const generateArticleSlug = (uuid, title) =>
+export const generateArticleSlug = (uuid, title) =>
   `${title
     .toLowerCase()
     .split(' ')
