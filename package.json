@@ -21,7 +21,7 @@
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
     "babelify": "^10.0.0",
-    "browserify": "^16.2.2",
+    "browserify": "^16.4.0",
     "eslint": "^5.0.0",
     "faker": "^4.1.0",
     "jest": "^23.6.0",
