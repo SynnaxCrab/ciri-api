@@ -2652,17 +2652,17 @@ graphql-extensions@0.5.0:
   dependencies:
     "@apollographql/apollo-tools" "^0.3.0"
 
-graphql-playground-html@1.6.12:
-  version "1.6.12"
-  resolved "https://registry.yarnpkg.com/graphql-playground-html/-/graphql-playground-html-1.6.12.tgz#8b3b34ab6013e2c877f0ceaae478fafc8ca91b85"
-  integrity sha512-yOYFwwSMBL0MwufeL8bkrNDgRE7eF/kTHiwrqn9FiR9KLcNIl1xw9l9a+6yIRZM56JReQOHpbQFXTZn1IuSKRg==
+graphql-playground-html@1.6.19:
+  version "1.6.19"
+  resolved "https://registry.yarnpkg.com/graphql-playground-html/-/graphql-playground-html-1.6.19.tgz#3883ecf5e8c18b3c0f08145b5417b9c01a1f0bef"
+  integrity sha512-cLAqoOlxHbGj/LBpr4l2BE9qXf3g8ShjQqU2daVueITI/3wIkcDQTaQaQp+HWv0uaX0dCsgMCFW/TooLj8yJOg==
 
-graphql-playground-middleware-koa@^1.6.4:
-  version "1.6.11"
-  resolved "https://registry.yarnpkg.com/graphql-playground-middleware-koa/-/graphql-playground-middleware-koa-1.6.11.tgz#7749bedacba1adf0e4f81b127bf6d64ff7f07f14"
-  integrity sha512-3pP5jVdZHs5Tk9dQTPpeuu5s5vzd1NUsCse93Y9TXw90xZVo2lfcujwvlGPgx6yR9p1NsiI/0kNCcGboVYrkNw==
+graphql-playground-middleware-koa@^1.6.14:
+  version "1.6.14"
+  resolved "https://registry.yarnpkg.com/graphql-playground-middleware-koa/-/graphql-playground-middleware-koa-1.6.14.tgz#f60d45ff7013c831821999bbe1e8736ef66bc7a4"
+  integrity sha512-8jwWuVoGo+53IGGO8W0csZvHjlFxoBk29mmxVbp3wvSPV76mMnTbMMRtGSuekEQhHiWQHjbDLNsNM0Yo0Dl6NQ==
   dependencies:
-    graphql-playground-html "1.6.12"
+    graphql-playground-html "1.6.19"
 
 graphql-subscriptions@^1.0.0:
   version "1.0.0"
